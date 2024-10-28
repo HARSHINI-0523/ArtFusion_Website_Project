@@ -1,0 +1,10 @@
+body {
+  background-color: white;
+  color: black;
+  width:100%;
+  font-family: 'Inter', sans-serif;
+}
+
+.container {
+  padding-top: 60px; 
+}

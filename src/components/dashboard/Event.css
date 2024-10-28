@@ -1,0 +1,384 @@
+/* Container for event section */
+.event-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Flexbox to align the calendar and event details side by side */
+.calendar-container {
+    display: flex;
+    justify-content: space-between; /* Spread calendar and events equally */
+}
+
+/* Calendar styling */
+.calendar {
+    margin-right: 50px; /* Space between calendar and event details */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    flex: 1; /* Calendar grows within the available space */
+}
+
+/* Header section for the calendar */
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.calendar h3 {
+    margin: 0;
+    text-align: center;
+}
+
+/* Buttons to navigate months */
+.previous-month-button,
+.next-month-button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Days of the week (Sun, Mon, etc.) */
+.days-of-week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+/* Style for individual days of the week */
+.day {
+    text-align: center;
+}
+
+/* Grid structure for the calendar days */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+/* Calendar day blocks */
+.calendar-date {
+    text-align: center;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Hover effect for calendar dates */
+.calendar-date:hover {
+    background-color: #e7f3ff;
+}
+
+/* Empty days (before the 1st of the month starts) */
+.calendar-date.empty {
+    background-color: transparent;
+}
+
+/* Event section */
+.event-section {
+    background-color: #e7f3ff;
+    padding: 15px;
+    border-radius: 8px;
+    width: 500px; /* Fixed width for event details section */
+}
+
+
+/* Event date circle */
+.event-date-circle {
+    display:flex;
+    width: 50px; /* Adjusted width to fit the date (dd-mm) */
+    height: 50px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 20px; /* Space between date and event name */
+}
+.event-item{
+    display:flex;
+    margin:5px;
+}
+/* Event name beside the date circle */
+.event-name {
+    font-size: 16px;
+    color: #333;
+    padding:10px;
+    font-weight: bold;
+    
+}
+
+/* Additional styling if needed */
+.yearly-event-item:hover .event-details {
+    color: #0056b3; /* Optional hover effect for the event name */
+}
+
+
+/* Individual event styling */
+.event {
+    margin-bottom: 10px;
+}
+
+.event h4 {
+    margin: 0;
+}
+
+.event p {
+    margin: 5px 0;
+}
+
+/* Upcoming events section */
+.upcoming-events {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f0f8ff; /* Light blue background */
+    border-radius: 8px;
+}
+
+.upcoming-event {
+    margin-bottom: 10px;
+}
+
+.upcoming-event h4 {
+    margin: 0;
+}
+
+.upcoming-event p {
+    margin: 5px 0;
+}
+
+/* Header for the event section */
+.event-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px 0;
+}
+
+.event-header h2 {
+    margin: 0;
+    flex: 1;
+}
+
+/* Search form */
+.search-form {
+    display: flex;
+    align-items: center;
+}
+
+.search-form input {
+    padding: 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 180px;
+}
+
+.search-form button {
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+}
+
+.search-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Plus Button Styling */
+.plus-button {
+    background-color: #007bff;
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 24px;
+    margin-left: 10px;
+    position: relative;
+    z-index: 10;
+}
+
+.plus-button:hover {
+    background-color: #0056b3;
+}
+
+.createEventmodal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Dimmed background */
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0s 0.3s; /* Fade-in effect */
+}
+
+/* Show the modal when open */
+.createEventmodal.show {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease;
+}
+
+/* Modal content area */
+.createEventmodal-content {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    
+    max-width: 600px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+/* Modal header (title and close button) */
+.createEventmodal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+.createEventmodal-header h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #333;
+}
+
+/* Close button */
+.createEventmodal-header .close {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+    padding: 5px;
+    transition: color 0.2s ease;
+}
+
+.createEventmodal-header .close:hover {
+    color: #ff5c5c;
+}
+
+/* Form styling */
+.createEventmodal-content form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.createEventmodal-content input,
+.createEventmodal-content select,
+.createEventmodal-content textarea,
+.createEventmodal-content date {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+/* Submit button */
+.createEventmodal-content button[type="submit"] {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.createEventmodal-content button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+
+.yearly-events {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background: rgb(237, 235, 235);
+
+}
+
+/* Modal Styles */
+.deletemodal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.deletemodal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    max-width :500px;
+    text-align: center;
+}
+
+.deletemodalBtns {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+
+.deleteconfirm-btn, .deletecancel-btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.deleteconfirm-btn {
+    background-color: #d9534f; /* Bootstrap Danger Color */
+    color: white;
+}
+
+.deletecancel-btn {
+    background-color: #5bc0de; /* Bootstrap Info Color */
+    color: white;
+}
+
+.deletemodal .show {
+    display: block; /* Show the modal */
+}
+
+.deletebtn{
+    padding:0;
+    margin:0;
+    background-color: #e7f3ff
+}

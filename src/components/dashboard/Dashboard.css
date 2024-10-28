@@ -1,0 +1,189 @@
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #ad856bef;
+    color: #ecf0f1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed; 
+    height: 100%;
+    overflow-y: auto; 
+}
+
+.sidebar-brand-container {
+    padding: 20px;
+    text-align: center;
+    
+    background-color: #312c16; 
+}
+
+.sidebar-brand {
+    color: #ecf0f1;
+    font-size: 24px;
+    
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 2px;
+    transition: color 0.3s;
+}
+
+.sidebar-brand:hover {
+    color: #3498db; 
+}
+
+.sidebar-menu {
+    flex-grow: 1;
+    padding: 20px 0;
+}
+
+/* Common styling for both links and buttons inside the sidebar */
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #fff;  /* Adjust this to the desired text color */
+    font-size: 16px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+/* Hover effect for links and button */
+.sidebar-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);  /* Light hover effect */
+}
+
+/* Ensure button doesn't appear different */
+.sidebar-link:focus {
+    outline: none;
+}
+
+/* Additional styling to prevent shift on hover */
+ .sidebar-link svg {
+    margin-right: 10px;
+} 
+
+
+ .sidebar-more {
+    padding: 20px 0;
+    text-align: left;
+}
+
+.more-options {
+    padding: 0 20px;
+} 
+
+.settings-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.settings-button {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background: none;
+    border: none;
+    color: #ecf0f1;
+    padding: 12px 0;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.settings-button:hover {
+    background-color:#312c16;
+    color: #fff;
+}
+
+.settings-button svg {
+    margin-left: auto;
+    font-size: 14px;
+}
+
+.settings-submenu {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.submenu-link {
+    padding: 8px 0;
+    color: #bdc3c7;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.submenu-link:hover {
+    color: #ecf0f1;
+}
+
+.logout-button {
+    background: none;
+    border: none;
+    color: #bdc3c7;
+    text-align: left;
+    padding: 8px 0;
+    font-size: 14px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.logout-button:hover {
+    color: #ecf0f1;
+}
+
+.dashboard-content {
+    flex: 1;
+    margin-left: 250px;  
+    width:980px;
+    padding: 20px;   
+    background-image: url('https://png.pngtree.com/background/20210715/original/pngtree-yellow-watercolor-paper-smudge-background-picture-image_1251979.jpg'); 
+    /* background-color: white; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-y: auto;
+}
+.deleteAccountModal{
+    background-color:white;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .dashboard-content {
+        margin-left: 200px;
+    }
+
+    .sidebar-brand {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .dashboard-content {
+        margin-left: 0;
+    }
+
+    .sidebar-brand-container {
+        text-align: left;
+    }
+}
